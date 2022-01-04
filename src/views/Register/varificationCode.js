@@ -1,11 +1,13 @@
 import { Button, Col, Form, Row, message } from "antd";
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { LoginApi } from "../../api/Login";
 import InputPassword from "../../components/Form/InputPassword";
 import { MainContext } from "../../context/MainContext";
 
 function VarificationCode() {
   const { userData } = useContext(MainContext);
+  const navigate = useNavigate();
   let value = {};
   const onFinish = (values) => {
     value = {
@@ -15,10 +17,10 @@ function VarificationCode() {
     LoginApi.create(value)
       .then(() => {
         message.success("Registratsiyadan muaffaqiyatli o’tdingiz / success");
+        navigate("/");
       })
       .catch((error) => {
-        console.log(error);
-        message.error("Muaffaqiyatsiz urinish");
+        message.error(error.response?.data?.detail);
       });
   };
 
@@ -26,15 +28,15 @@ function VarificationCode() {
     <div className="varification">
       <Form onFinish={onFinish} autoComplete="off">
         <Row gutter={24}>
-          <Col span={10} offset={7}>
+          <Col xs={{ span: 24 }} lg={{ span: 12, offset: 6 }}>
             <InputPassword
               size="large"
               placeholder="Tasdiqlovchi kod / Verfication code "
-              reuired={true}
+              rules={[{ required: true }]}
               name="password"
             />
           </Col>
-          <Col span={10} offset={7}>
+          <Col xs={{ span: 24 }} lg={{ span: 12, offset: 6 }}>
             <Form.Item>
               <Button size="large" type="primary" htmlType="submit">
                 Yuborish / Submit

@@ -8,12 +8,10 @@ const InputPassword = ({
   placeholder,
   className,
   size,
-  reuired,
 }) => {
   return (
     <Form.Item label={label} name={name} rules={rules}>
       <Input.Password
-        required={reuired}
         size={size}
         placeholder={placeholder}
         className={className}

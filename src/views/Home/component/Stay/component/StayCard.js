@@ -4,7 +4,7 @@ import React from "react";
 function StayCard() {
   return (
     <Row gutter={24}>
-      <Col xs={{ span: 24 }} md={{ span: 12 }} lg={{ span: 6 }}>
+      <Col xs={{ span: 24 }} md={{ span: 12 }} lg={{ span: 8 }}>
         <div className="card-box">
           <div className="stay-card">
             <div className="title">FOR ACADEMICS</div>
@@ -20,7 +20,7 @@ function StayCard() {
           </div>
         </div>
       </Col>
-      <Col xs={{ span: 24 }} md={{ span: 12 }} lg={{ span: 6 }}>
+      <Col xs={{ span: 24 }} md={{ span: 12 }} lg={{ span: 8 }}>
         <div className="card-box">
           <div className="stay-card">
             <div className="title">FOR ACADEMICS</div>
@@ -36,7 +36,7 @@ function StayCard() {
           </div>
         </div>
       </Col>
-      <Col xs={{ span: 24 }} md={{ span: 12 }} lg={{ span: 6 }}>
+      <Col xs={{ span: 24 }} md={{ span: 12 }} lg={{ span: 8 }}>
         <div className="card-box">
           <div className="stay-card">
             <div className="title">FOR ACADEMICS</div>

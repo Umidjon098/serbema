@@ -38,19 +38,27 @@ const Mobile = () => {
               ))}
               {!isToken && (
                 <>
-                  <li className="login-button">
+                  <li onClick={() => handleClick()} className="login-button">
                     <Link to="/register">
                       <UserAddOutlined className="login-button" />
                       Sign Up
                     </Link>
                   </li>
-                  <li className="login-button">
+                  <li onClick={() => handleClick()} className="login-button">
                     <Link to="/login">
                       <LoginOutlined className="login-button" />
                       Sign In
                     </Link>
                   </li>
                 </>
+              )}
+              {isToken && (
+                <li onClick={() => handleClick()} className="login-button">
+                  <Link to="/addautor">
+                    <UserAddOutlined className="login-button" />
+                    Submit Paper
+                  </Link>
+                </li>
               )}
             </ul>
           </div>

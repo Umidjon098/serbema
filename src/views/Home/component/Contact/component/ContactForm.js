@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Col, Form, Row } from "antd";
+import { Button, Col, Form, Row, message } from "antd";
 import InputText from "../../../../../components/Form/InputText";
 import PhoneNumber from "../../../../../components/Form/PhoneNumber";
 import InputTextArea from "../../../../../components/Form/InputTextArea";
@@ -10,6 +10,7 @@ const validateMessages = {
   types: {
     email: "${label} is not a valid email!",
     number: "${label} is not a valid number!",
+    name: "${label} is not a valid name!",
   },
   number: {
     range: "${label} must be between ${min} and ${max}",
@@ -25,9 +26,12 @@ function ContactForm() {
       .then((data) => {
         form.resetFields();
         setLoading(false);
+        message.success("Success");
       })
       .catch((error) => {
         console.log(error);
+        setLoading(false);
+        message.error("Error");
       });
   };
   return (
@@ -43,30 +47,41 @@ function ContactForm() {
       </div>
       <div className="contact-form">
         <Form
+          form={form}
           name="nest-messages"
           onFinish={onFinish}
           validateMessages={validateMessages}
         >
           <Row gutter={24}>
             <Col xs={{ span: 24 }} lg={{ span: 12, offset: 6 }}>
-              <InputText size="large" label={"Your name"} name="name" />
+              <InputText
+                size="large"
+                label={"Your name"}
+                name="name"
+                rules={[{ required: true }]}
+              />
             </Col>
             <Col xs={{ span: 24 }} lg={{ span: 12, offset: 6 }}>
-              <InputText size="large" label={"Your email"} name="email" />
+              <InputText
+                size="large"
+                label={"Your email"}
+                name="email"
+                rules={[{ required: true }]}
+              />
             </Col>
             <Col xs={{ span: 24 }} lg={{ span: 12, offset: 6 }}>
-              <PhoneNumber name="phone_number" required={true} />
+              <PhoneNumber name="phone_number" rules={[{ required: true }]} />
             </Col>
             <Col xs={{ span: 24 }} lg={{ span: 12, offset: 6 }}>
               <InputTextArea
                 label={"Your message"}
                 name="message"
-                required={true}
+                rules={[{ required: true }]}
               />
             </Col>
             <Col xs={{ span: 24 }} lg={{ span: 12, offset: 6 }}>
               <Form.Item>
-                <Button type="primary" htmlType="submit">
+                <Button loading={loading} type="primary" htmlType="submit">
                   Submit
                 </Button>
               </Form.Item>

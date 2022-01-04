@@ -10,16 +10,20 @@ const InputEmail = ({
   suffix = "",
   size,
   placeholder,
-  required,
 }) => {
   return (
-    <Form.Item {...restField} label={label} name={name} fieldKey={fieldKey}>
+    <Form.Item
+      {...restField}
+      label={label}
+      name={name}
+      fieldKey={fieldKey}
+      rules={rules}
+    >
       <Input
         placeholder={placeholder}
         size={size}
         type="email"
         suffix={suffix}
-        required={required}
       />
     </Form.Item>
   );

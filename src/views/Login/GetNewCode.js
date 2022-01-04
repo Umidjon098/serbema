@@ -17,28 +17,29 @@ function GetNewCode() {
         console.log(error);
       });
   };
-  return loading ? (
-    <Loading />
-  ) : (
-    <Form onFinish={onFinish} autoComplete="off">
-      <Row gutter={24}>
-        <Col span={24}>
-          <InputEmail
-            size={"large"}
-            required={true}
-            placeholder="E-mail"
-            name="email"
-          />
-        </Col>
-        <Col span={24}>
-          <Form.Item>
-            <Button loading={loading} size="large" htmlType="submit">
-              Submit
-            </Button>
-          </Form.Item>
-        </Col>
-      </Row>
-    </Form>
+  return (
+    <>
+      {loading && <Loading />}
+      <Form onFinish={onFinish} autoComplete="off">
+        <Row gutter={24}>
+          <Col span={24}>
+            <InputEmail
+              size={"large"}
+              rules={[{ required: true }]}
+              placeholder="E-mail"
+              name="email"
+            />
+          </Col>
+          <Col span={24}>
+            <Form.Item>
+              <Button loading={loading} size="large" htmlType="submit">
+                Submit
+              </Button>
+            </Form.Item>
+          </Col>
+        </Row>
+      </Form>
+    </>
   );
 }
 

@@ -1,7 +1,7 @@
 import HTTPMethods from "./HTTPMethods";
 import axios from "axios";
 
-export const baseUrl = "http://138.68.70.187:8001";
+export const baseUrl = "http://62.209.128.34";
 
 export default function mainCallerOX(
   path,
@@ -11,7 +11,6 @@ export default function mainCallerOX(
 ) {
   const _headers = {
     Accept: "application/json",
-    Authorization: `Bearer  ${localStorage.getItem("accessToken")}`,
     ...headers,
   };
 
@@ -19,8 +18,9 @@ export default function mainCallerOX(
     method,
     url: baseUrl + path,
   };
-
-  //   if (development) _headers.Authorization = "Bearer " + getTOKEN();
+  if (localStorage.getItem("accessToken")) {
+    _headers.Authorization = `Bearer  ${localStorage.getItem("accessToken")}`;
+  }
 
   if (data) {
     options.data = data;

@@ -1,17 +1,41 @@
-import React, { useContext } from "react";
+import React from "react";
 import InputEmail from "../../components/Form/InputEmail";
 import InputText from "../../components/Form/InputText";
-import { Form, Button, Col, Row } from "antd";
-import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
+import { Form, Button, Col, Row, Upload } from "antd";
+import {
+  MinusCircleOutlined,
+  PlusOutlined,
+  UploadOutlined,
+} from "@ant-design/icons";
 import AddArticle from "./AddArticle";
-import UploadFile from "../../components/Upload/UploadFile";
-import { MainContext } from "../../context/MainContext";
+import { Article } from "../../api/Article";
+import InputFile from "../../components/Form/InputFile";
 
 function AddAutor() {
-  const { dataList } = useContext(MainContext);
+  const formData = new FormData();
 
+  const [form] = Form.useForm();
+  function getFormData(object) {
+    Object.keys(object).forEach((key) => {
+      if (typeof object[key] !== "object") {
+        formData.append(key, object[key]);
+      } else {
+        formData.append(key, JSON.stringify(object[key]));
+      }
+    });
+    return formData;
+  }
+  const handleFile = (file) => {
+    formData.append("file", file);
+  };
   const onFinish = (values) => {
-    console.log("Success:", values);
+    Article.create(getFormData(values))
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -23,13 +47,14 @@ function AddAutor() {
         name="dynamic_form_nest_item"
         onFinish={onFinish}
         autoComplete="off"
+        form={form}
       >
         <Form.List name="authors">
           {(fields, { add, remove }) => (
             <>
               {fields.map(({ key, name, fieldKey, ...restField }) => (
                 <Row gutter={24} key={key}>
-                  <Col span={10} offset={7}>
+                  <Col xs={{ span: 24 }} lg={{ span: 12, offset: 6 }}>
                     <InputText
                       size={"large"}
                       required={true}
@@ -42,7 +67,7 @@ function AddAutor() {
                       ]}
                     />
                   </Col>
-                  <Col span={10} offset={7}>
+                  <Col xs={{ span: 24 }} lg={{ span: 12, offset: 6 }}>
                     <InputText
                       size={"large"}
                       required={true}
@@ -55,7 +80,7 @@ function AddAutor() {
                       ]}
                     />
                   </Col>
-                  <Col span={10} offset={7}>
+                  <Col xs={{ span: 24 }} lg={{ span: 12, offset: 6 }}>
                     <InputText
                       size={"large"}
                       required={true}
@@ -68,7 +93,7 @@ function AddAutor() {
                       ]}
                     />
                   </Col>
-                  <Col span={10} offset={7}>
+                  <Col xs={{ span: 24 }} lg={{ span: 12, offset: 6 }}>
                     <InputText
                       size={"large"}
                       required={true}
@@ -81,7 +106,7 @@ function AddAutor() {
                       ]}
                     />
                   </Col>
-                  <Col span={10} offset={7}>
+                  <Col xs={{ span: 24 }} lg={{ span: 12, offset: 6 }}>
                     <InputEmail
                       size={"large"}
                       required={true}
@@ -98,7 +123,7 @@ function AddAutor() {
                 </Row>
               ))}
               <Row gutter={24}>
-                <Col span={10} offset={7}>
+                <Col xs={{ span: 24 }} lg={{ span: 12, offset: 6 }}>
                   <Form.Item>
                     <Button
                       type="dashed"
@@ -116,14 +141,15 @@ function AddAutor() {
         </Form.List>
         <AddArticle />
         <Row gutter={24}>
-          <Col span={10} offset={7}>
-            <Form.Item name="file">
-              <UploadFile />
-            </Form.Item>
+          <Col xs={{ span: 24 }} lg={{ span: 12, offset: 6 }}>
+            <InputFile onChange={(e) => handleFile(e.target.files[0])} />
+            {/* <Upload {...props}>
+              <Button icon={<UploadOutlined />}>Click to Upload</Button>
+            </Upload> */}
           </Col>
         </Row>
         <Row gutter={24}>
-          <Col span={10} offset={7}>
+          <Col xs={{ span: 24 }} lg={{ span: 12, offset: 6 }}>
             <Form.Item>
               <Button type="primary" htmlType="submit">
                 Submit

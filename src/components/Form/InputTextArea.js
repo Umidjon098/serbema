@@ -1,14 +1,7 @@
 import React from "react";
 import { Form, Input } from "antd";
 
-const InputTextArea = ({
-  label,
-  name,
-  rules,
-  restField,
-  fieldKey,
-  required,
-}) => {
+const InputTextArea = ({ label, name, rules, restField, fieldKey }) => {
   const { TextArea } = Input;
 
   return (
@@ -18,7 +11,6 @@ const InputTextArea = ({
       name={name}
       rules={rules}
       fieldKey={fieldKey}
-      rules={[{ required: required }]}
     >
       <TextArea style={{ height: "40px" }} />
     </Form.Item>

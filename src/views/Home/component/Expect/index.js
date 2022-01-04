@@ -8,16 +8,16 @@ function Expect() {
     <div className="expect">
       <SectionTitle title="WHAT TO EXPECT" />
       <Row gutter={24}>
-        <Col xs={{ span: 24 }} md={{ span: 12 }} lg={{ span: 6 }}>
+        <Col xs={{ span: 24 }} md={{ span: 12 }} lg={{ span: 12 }}>
           <ExpectCard />
         </Col>
-        <Col xs={{ span: 24 }} md={{ span: 12 }} lg={{ span: 6 }}>
+        <Col xs={{ span: 24 }} md={{ span: 12 }} lg={{ span: 12 }}>
           <ExpectCard />
         </Col>
-        <Col xs={{ span: 24 }} md={{ span: 12 }} lg={{ span: 6 }}>
+        <Col xs={{ span: 24 }} md={{ span: 12 }} lg={{ span: 12 }}>
           <ExpectCard />
         </Col>
-        <Col xs={{ span: 24 }} md={{ span: 12 }} lg={{ span: 6 }}>
+        <Col xs={{ span: 24 }} md={{ span: 12 }} lg={{ span: 12 }}>
           <ExpectCard />
         </Col>
       </Row>

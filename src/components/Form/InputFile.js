@@ -8,10 +8,17 @@ const InputFile = ({
   restField,
   fieldKey,
   suffix = "",
+  onChange,
 }) => {
   return (
-    <Form.Item {...restField} label={label} name={name} fieldKey={fieldKey}>
-      <Input type="file" suffix={suffix} />
+    <Form.Item
+      {...restField}
+      label={label}
+      name={name}
+      fieldKey={fieldKey}
+      rules={rules}
+    >
+      <Input onChange={onChange} type="file" suffix={suffix} />
     </Form.Item>
   );
 };

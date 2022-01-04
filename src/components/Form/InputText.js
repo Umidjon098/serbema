@@ -11,7 +11,6 @@ const InputText = ({
   placeholder,
   className,
   size,
-  required,
 }) => {
   return (
     <Form.Item
@@ -22,7 +21,6 @@ const InputText = ({
       fieldKey={fieldKey}
     >
       <Input
-        required={required}
         size={size}
         suffix={suffix}
         placeholder={placeholder}

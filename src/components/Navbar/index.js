@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Logo from "../../assets/images/logo.svg";
 import {
   LoginOutlined,
@@ -48,6 +48,14 @@ const Navbar = () => {
                     </Link>
                   </li>
                 </>
+              )}
+              {isToken && (
+                <li className="login-button">
+                  <Link to="/addautor">
+                    <UserAddOutlined className="login-button" />
+                    Submit Paper
+                  </Link>
+                </li>
               )}
             </ul>
           </div>

@@ -26,7 +26,7 @@ const List = [
 function Papers() {
   return (
     <div className="papers">
-      <SectionTitle title="CALL FOR PAPERS" />
+      <SectionTitle id="contribution" title="CALL FOR PAPERS" />
       <Slider slideList={List} view={3} spaceBetween={30} />
     </div>
   );

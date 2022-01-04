@@ -1,4 +1,4 @@
-import { Button, Col, Form, Row } from "antd";
+import { Button, Col, Form, message, Row } from "antd";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { LoginApi } from "../../api/Login";
@@ -20,9 +20,11 @@ function Login() {
         localStorage.setItem("accessToken", data.access);
         navigate("/");
         setLoading(false);
+        message.success("Successful");
       })
       .catch((error) => {
-        console.log(error);
+        message.error(error.response?.data?.detail);
+        setLoading(false);
       });
   };
 
@@ -36,23 +38,23 @@ function Login() {
       />
       <Form onFinish={onFinish} autoComplete="off">
         <Row gutter={24}>
-          <Col span={10} offset={7}>
+          <Col xs={{ span: 24 }} lg={{ span: 12, offset: 6 }}>
             <InputEmail
               size={"large"}
-              required={true}
+              rules={[{ required: true }]}
               placeholder="E-mail"
               name="email"
             />
           </Col>
-          <Col span={10} offset={7}>
+          <Col xs={{ span: 24 }} lg={{ span: 12, offset: 6 }}>
             <InputPassword
               size={"large"}
-              required={true}
+              rules={[{ required: true }]}
               placeholder="Password"
               name="password"
             />
           </Col>
-          <Col span={10} offset={7}>
+          <Col xs={{ span: 24 }} lg={{ span: 12, offset: 6 }}>
             <Form.Item>
               <Button
                 loading={loading}
@@ -64,7 +66,7 @@ function Login() {
               </Button>
             </Form.Item>
           </Col>
-          <Col span={10} offset={7}>
+          <Col xs={{ span: 24 }} lg={{ span: 12, offset: 6 }}>
             <div className="take-password">
               <Link to="/register">
                 <span>Ro'yxatdan O'tish / </span>

@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar";
 import Banner from "./component/Banner";
 import Commitee from "./component/Commitee";
 import Contact from "./component/Contact";
+import Counter from "./component/Counter";
 import Expect from "./component/Expect";
 import Papers from "./component/Papers";
 import Schedule from "./component/Schedule";
@@ -15,6 +16,7 @@ export const Home = () => {
       <BackTop />
       <Navbar />
       <Banner />
+      <Counter />
       <Commitee />
       <Speakers />
       <Schedule />

@@ -6,11 +6,7 @@ import { Form } from "antd";
 
 function PhoneNumber(props) {
   return (
-    <Form.Item
-      label="Phone number"
-      name={props.name}
-      rules={[{ required: props.required }]}
-    >
+    <Form.Item label="Phone number" name={props.name} rules={props.rules}>
       <PhoneInputCom
         className="custom-phone-input"
         international

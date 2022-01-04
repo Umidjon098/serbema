@@ -7,8 +7,4 @@ export class Article {
   static create(data) {
     return mainCaller(this.endpoint, HTTPMethods.POST, data);
   }
-
-  static getAll() {
-    return mainCaller(this.endpoint, HTTPMethods.GET);
-  }
 }

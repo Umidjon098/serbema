@@ -33,9 +33,9 @@ const List = [
 function Stay() {
   return (
     <div className="papers">
-      <SectionTitle title="WHERE TO STAY" />
+      <SectionTitle id="venue" title="WHERE TO STAY" />
       <Slider slideList={List} view={3} spaceBetween={30} />
-      <SectionTitle title="WHERE TO STAY" />
+      <SectionTitle id="conference" title="WHERE TO STAY" />
       <StayCard />
     </div>
   );
