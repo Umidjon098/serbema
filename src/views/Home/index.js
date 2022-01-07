@@ -6,6 +6,7 @@ import Commitee from "./component/Commitee";
 import Contact from "./component/Contact";
 import Counter from "./component/Counter";
 import Expect from "./component/Expect";
+import Footer from "./component/Footer";
 import Papers from "./component/Papers";
 import Schedule from "./component/Schedule";
 import Speakers from "./component/Speakers";
@@ -23,6 +24,7 @@ export const Home = () => {
       <Expect />
       <Papers />
       <Stay />
+      <Footer />
       <Contact />
     </div>
   );

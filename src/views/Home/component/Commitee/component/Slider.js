@@ -43,7 +43,7 @@ export default function Slider({
             <div className="card-box">
               <div className="commit-card">
                 <div className="img-box">
-                  <img src={IMage} alt="" />
+                  <img src={data.img} alt="" />
                 </div>
                 <div className="name">{data.name}</div>
                 <div className="proffesion">{data.proffesion}</div>

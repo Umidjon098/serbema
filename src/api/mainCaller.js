@@ -18,9 +18,9 @@ export default function mainCallerOX(
     method,
     url: baseUrl + path,
   };
-  if (localStorage.getItem("accessToken")) {
-    _headers.Authorization = `Bearer  ${localStorage.getItem("accessToken")}`;
-  }
+  // if (localStorage.getItem("accessToken")) {
+  //   _headers.Authorization = `Bearer  ${localStorage.getItem("accessToken")}`;
+  // }
 
   if (data) {
     options.data = data;

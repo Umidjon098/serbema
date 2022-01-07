@@ -1,5 +1,6 @@
 import React from "react";
 import SectionTitle from "../../../../components/SectionTitle";
+import { images } from "../../../../constants/images";
 import HonorableCard from "./component/HonorableCard";
 import KeynoteCard from "./component/KeynoteCard";
 
@@ -27,47 +28,67 @@ const List = [
 ];
 const List1 = [
   {
-    name: "Prof. Obid Tursunov",
+    name: "Giorgi Ghambashidze",
     proffesion:
-      "Tashkent Institute of Irrigation and Agricultural Mechanization Engineers",
-    country: "(Uzbekistan)",
-    university: "Shanghai Jiao Tong University (China)",
+      "Agricultural University of Georgia · Division of Ecological Agriculture and Nature Conservation PhD in Agricultural Sciences",
+    country: "Georgia",
+    university: "Agricultural University of Georgia",
+    img: images.Giorgi,
   },
   {
-    name: "Prof. Obid Tursunov",
+    name: "Horea Cacovean",
     proffesion:
-      "Tashkent Institute of Irrigation and Agricultural Mechanization Engineers",
-    country: "(Uzbekistan)",
-    university: "Shanghai Jiao Tong University (China)",
+      "OSPA UNIVERSITATEA DE STIINTE AGRICOLE SI MEDICINA VETERINARA CLUJ NAPOCA",
+    country: "",
+    university: "",
+    img: images.Horea,
   },
   {
-    name: "Prof. Obid Tursunov",
+    name: "Rusu Teodor",
     proffesion:
-      "Tashkent Institute of Irrigation and Agricultural Mechanization Engineers",
-    country: "(Uzbekistan)",
-    university: "Shanghai Jiao Tong University (China)",
+      "University of Agricultural Sciences and Veterinary Medicine | USAMV Cluj · Department of Technical Sciences and Soil sciences Professor PhD.",
+    country: "",
+    university: "",
+    img: images.Rusu,
   },
   {
-    name: "Prof. Obid Tursunov",
+    name: "Yoshiko Kawabata",
     proffesion:
-      "Tashkent Institute of Irrigation and Agricultural Mechanization Engineers",
-    country: "(Uzbekistan)",
-    university: "Shanghai Jiao Tong University (China)",
+      "Tokyo University of Agriculture and Technology | TUAT · Division of International Environmental and Agricultural Science PhD",
+    country: "",
+    university: "",
+    img: images.Yoshiko,
   },
   {
-    name: "Prof. Obid Tursunov",
+    name: "Elena Shamrikova",
+    proffesion: "Institute of Semiconductor Physics · soilscience",
+    country: "",
+    university: "",
+    img: images.Elena,
+  },
+  {
+    name: "Alisher Mirzabaev",
     proffesion:
-      "Tashkent Institute of Irrigation and Agricultural Mechanization Engineers",
-    country: "(Uzbekistan)",
-    university: "Shanghai Jiao Tong University (China)",
+      "University of Bonn | Uni Bonn · Center for Development Research PhD",
+    country: "",
+    university: "",
+    img: images.Alisher,
+  },
+  {
+    name: "Olena Dubovyk",
+    proffesion:
+      "University of Bonn | Uni Bonn · Center for Remote Sensing of Land Surfaces (ZFL) PhD (University of Bonn)",
+    country: "",
+    university: "",
+    img: images.Olena,
   },
 ];
 function Speakers() {
   return (
     <div className="speakers">
-      <SectionTitle id="speakers" title={"HONORABLE SPEAKERS"} />
+      <SectionTitle id="honorable" title={"HONORABLE SPEAKERS"} />
       <HonorableCard slideList={List} />
-      <SectionTitle title={"KEYNOTE SPEAKERS"} />
+      <SectionTitle id="keynote" title={"KEYNOTE SPEAKERS"} />
       <KeynoteCard slideList={List1} />
     </div>
   );

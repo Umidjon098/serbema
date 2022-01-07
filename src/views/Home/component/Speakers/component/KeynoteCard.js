@@ -1,6 +1,5 @@
 import React from "react";
 import { Row, Col } from "antd";
-import IMage from "../../../../../assets/images/Banner.png";
 
 export default function KeynoteCard({ slideList = [] }) {
   return (
@@ -10,7 +9,7 @@ export default function KeynoteCard({ slideList = [] }) {
           <div className="card-box">
             <div className="keynote-card">
               <div className="img-box">
-                <img src={IMage} alt="" />
+                <img src={data.img} alt="" />
               </div>
               <div className="name">{data.name}</div>
               <div className="proffesion">{data.proffesion}</div>

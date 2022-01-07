@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import SwiperCore, { Navigation } from "swiper";
-import IMage from "../../../../../assets/images/Banner.png";
 SwiperCore.use([Navigation]);
 
 export default function Slider({
@@ -43,11 +42,13 @@ export default function Slider({
             <div className="card-box">
               <div className="papers-card">
                 <div className="img-box">
-                  <img src={IMage} alt="" />
+                  <img src={data.img} alt="" />
                 </div>
                 <div className="card-footer">
                   <div className="title">{data.title}</div>
-                  <div className="link">{data.link}</div>
+                  <a target="_blank" href={data.link} className="link">
+                    Visit Website
+                  </a>
                 </div>
               </div>
             </div>
